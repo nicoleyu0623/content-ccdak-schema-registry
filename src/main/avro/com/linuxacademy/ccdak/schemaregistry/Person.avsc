@@ -1,5 +1,6 @@
 {
   "namespace": "com.linuxacademy.ccdak.schemaregistry",
+  "compatibility": "BACKWARD", 
   "type": "record",
   "name": "Person",
   "fields": [
