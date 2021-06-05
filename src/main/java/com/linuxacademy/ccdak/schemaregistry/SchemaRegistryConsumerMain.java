@@ -26,10 +26,14 @@ public class SchemaRegistryConsumerMain {
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, KafkaAvroDeserializer.class);
         props.put(KafkaAvroDeserializerConfig.SPECIFIC_AVRO_READER_CONFIG, true); 
 
+        
+        //Person class auto generated from the arvo file
+          
         KafkaConsumer<String, Person> consumer = new KafkaConsumer<>(props);
         consumer.subscribe(Collections.singletonList("employees"));
 
         while (true) {
+      
             final ConsumerRecords<String, Person> records = consumer.poll(Duration.ofMillis(100));
             for (final ConsumerRecord<String, Person> record : records) {
                 final String key = record.key();
